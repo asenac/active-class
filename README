@@ -1,0 +1,17 @@
+An active class mechanism using Boost.Asio.
+
+Active classes are those which methods are executed in its own thread. This 
+kind of classes are useful to centralize some related tasks in a single 
+thread. They are usually stimulated throught events or triggered operations - 
+asynchronous operations.
+
+This is an implementation on few lines of active class, using Boost.Asio. It
+provides four macros: two for declaring methods, two for defining them.
+
+Use ASYNC_METHOD macros for those methods that you want to execute them 
+just in the class thread. If the class is not started, calls are queued and
+they will be executed when started.
+
+Use ASYNC_OR_SYNC_METHOD macros for those that you want to execute them
+in the class thread if it is started, or in the caller thread if not.
+
